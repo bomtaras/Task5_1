@@ -14,6 +14,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
+
 import java.util.ArrayList;
 
 public class RecipeAdapter extends RecyclerView.Adapter {
@@ -31,14 +34,15 @@ public class RecipeAdapter extends RecyclerView.Adapter {
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
      LayoutInflater inflater = LayoutInflater.from(context);
      View row = inflater.inflate(R.layout.recipe_item,parent,false);
-     MyViewHolder item =new MyViewHolder(row);
+     MyViewHolder item = new MyViewHolder(row);
         return item;
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-       // ((MyViewHolder)holder).imageView.setImageDrawable(recipes.get(position);
+       // ((MyViewHolder)holder).textView_id.setText(String.valueOf(recipes.get(position).getId()));
         ((MyViewHolder)holder).textView_title.setText(recipes.get(position).getTitle());
+        Picasso.get().load(recipes.get(position).getImage()).into(((MyViewHolder) holder).imageView);
         ((MyViewHolder)holder).textView_description.setText(recipes.get(position).getDescription().substring(0,100));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -46,15 +50,9 @@ public class RecipeAdapter extends RecyclerView.Adapter {
             public void onClick(View view) {
 
                 Intent intent = new Intent(context, FullRecipeDescription.class);
+                int id = recipes.get(position).getId();
 
-              // Log.d("RECIPE",recipes.get(position).getTitle());
-
-               // Log.d("CLICK","click item"+textView_description.getText());
-
-               //  Log.d("RECIPE",recipes.get(position).getDescription());
-
-               intent.putExtra("title",recipes.get(position).getTitle());
-               intent.putExtra("description",recipes.get(position).getDescription());
+               intent.putExtra("id",id);
 
                 context.startActivity(intent);
 
@@ -64,18 +62,20 @@ public class RecipeAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
+
         return this.recipes.size();
     }
     public class MyViewHolder extends RecyclerView.ViewHolder {
-
-       // ImageView imageView;
+        TextView textView_id;
+        ImageView imageView;
         TextView textView_title;
         TextView textView_description;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-           // imageView = itemView.findViewById(R.id.imageView);
+            textView_id = itemView.findViewById(R.id.textView_id);
             textView_title = itemView.findViewById(R.id.textView_title);
+            imageView = itemView.findViewById(R.id.imageView);
             textView_description = itemView.findViewById(R.id.textView_description);
         }
     }

@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Tara$/AndroidStudioProjects/Task5_1/app/src/main/res/layout/activity_add_new_recipe.xml" value="0.3484375" />
         <entry key="..\:/Users/Tara$/AndroidStudioProjects/Task5_1/app/src/main/res/layout/activity_full_recipe.xml" value="0.3625" />
         <entry key="..\:/Users/Tara$/AndroidStudioProjects/Task5_1/app/src/main/res/layout/activity_full_recipe_description.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Tara$/AndroidStudioProjects/Task5_1/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/Tara$/AndroidStudioProjects/Task5_1/app/src/main/res/layout/activity_main.xml" value="0.24719101123595505" />
         <entry key="..\:/Users/Tara$/AndroidStudioProjects/Task5_1/app/src/main/res/layout/recipe_item.xml" value="0.33" />
       </map>
     </option>

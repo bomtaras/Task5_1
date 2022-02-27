@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.task5_1">
 
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,9 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Task5_1">
         <activity
+            android:name=".AddNewRecipeActivity"
+            android:exported="false" />
+        <activity
             android:name=".FullRecipeDescription"
             android:exported="false" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
